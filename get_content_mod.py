@@ -1,4 +1,3 @@
-from kivymd.uix import label
 import pafy
 import vlc
 import time
