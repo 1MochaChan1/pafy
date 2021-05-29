@@ -1,0 +1,26 @@
+#kivy 0.104.2
+ScreenManager:
+    MenuScreen:
+    SettingsScreen:
+
+<MenuScreen>:
+    name:'menu'
+    MDLabel:
+        text:"Menu Screen"
+        halign:'center'
+    MDRectangleFlatButton:
+        text:'Goto Settings'
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+        on_release:root.manager.current = 'settings'
+
+
+
+<SettingsScreen>:
+    name:'settings'    
+    MDLabel:
+        text:"Settings Screen"
+        halign:'center'
+    MDRectangleFlatButton:
+        text:'Goto Menu'
+        pos_hint:{'center_x':0.5,'center_y':0.45}
+        on_release:root.manager.current = 'menu'

@@ -1,0 +1,60 @@
+#kivy 0.104.2
+#ScreenManager:
+#    BuildScreen:
+#    PlayerScreen:
+
+<BuildScreen>:
+    name:'search'
+    MDBoxLayout: #Container in which list will be displayed
+        canvas.before:
+            Color:
+                rgba:27/256, 28/256, 27/256,0.1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        orientation:'vertical'
+        pos_hint:{'center_x':0.5, 'center_y':0.4}
+        size_hint:(.9,.7)
+
+        ScrollView: #makes container scrollable
+            do_scroll_y:True
+            do_scroll_x:False
+
+            MDBoxLayout: #Container in which videos are listed
+                id:container
+                #cols:2
+                orientation:'vertical'
+                size_hint_y:None
+                height:self.minimum_height
+                #padding:15
+                spacing:10
+
+    MDRectangleFlatButton:
+        #icon:magnify
+        text:'Search'
+        pos_hint:{'center_x':0.75, 'center_y':0.8}
+        on_release:root.search()
+        padding:10
+
+    MDTextField:
+        id:search
+        hint_text:"Search for a Creepy Pasta"
+        #icon_right:"magnify"
+        helper_text:"Good luck listening to your favorite Creepy Pastas"
+        helper_text_mode:"on_focus"
+        pos_hint:{'center_x':0.5, 'center_y':0.8}
+        size_hint:(0.4,None)
+
+
+<PlayerScreen>:
+    name:'player'
+    MDIconButton:
+        icon:'play'
+        pos_hint:{'center_x':0.5, 'center_y':0.25}
+    MDIconButton:
+        icon:'step-forward'
+        pos_hint:{'center_x':0.6, 'center_y':0.25}
+    MDIconButton:
+        icon:'step-backward'
+        pos_hint:{'center_x':0.4, 'center_y':0.25}
+
