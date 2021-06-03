@@ -1,0 +1,128 @@
+#:kivy 0.104.2
+#ScreenManager:
+#    BuildScreen:
+#    PlayerScreen:
+
+<IconListItem>:
+    IconLeftWidget:
+        icon: root.icon
+
+<BuildScreen>:
+    name:'search'
+    MDBoxLayout:
+        orientation:'vertical'
+
+
+    MDBoxLayout: #Container in which list will be displayed
+        canvas.before:
+            Color:
+                rgba:27/256, 28/256, 27/256,0.1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        orientation:'vertical'
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+        size_hint:(.9,.7)
+        
+        
+        ScrollView: #makes container scrollable
+            do_scroll_y:True
+            do_scroll_x:False
+
+            MDBoxLayout: #Container in which videos are listed
+                id:container
+                #cols:2
+                orientation:'vertical'
+                size_hint_y:None
+                height:self.minimum_height
+                #padding:15
+                spacing:10
+
+
+    MDIconButton:
+        icon:"magnify"
+        #text:'Search'
+        pos_hint:{'center_x':0.15, 'center_y':0.9}
+        on_release:root.search()
+        padding:10
+
+    MDTextField:
+        id:search
+        hint_text:"Search for a Creepy Pasta"
+        #helper_text:"Good luck listening to your favorite Creepy Pastas"
+        helper_text_mode:"on_focus"
+        pos_hint:{'center_x':0.5, 'center_y':0.9}
+        size_hint:(0.6,None)
+        
+    MDBottomAppBar:
+        MDToolbar:
+            title:"Test"
+            left_action_items:[['clock', lambda x : root.open_menu(x)]]
+            mode:'end'
+            type:'bottom'
+            icon:'play'
+            on_action_button: if root.playing == 1 or root.set == 1: root.change_screen()
+
+
+<PlayerScreen>:
+    name:'player'
+    #ObjectProperties
+    play_btn:play_btn
+    elapsed:elapsed
+    length:length
+    img:img
+    title:title
+    #slide:slide
+    
+    pY:0.8
+
+    lX:0.055
+    rX:0.75
+    MDIconButton:
+        id:play_btn
+        icon:'play'
+        pos_hint:{'center_x':0.5, 'center_y':0.25}
+        on_press:root.play()
+    MDIconButton:
+        icon:'step-forward'
+        pos_hint:{'center_x':0.6, 'center_y':0.25}
+    MDIconButton:
+        icon:'step-backward'
+        pos_hint:{'center_x':0.4, 'center_y':0.25}
+    MDIconButton:
+        icon:'chevron-left'
+        pos_hint:{'center_x':0.1, 'center_y':0.85}
+        on_release:root.go_back()
+
+    MDCard:
+        orientation:'vertical'
+        pos_hint:{'center_x':0.5, 'center_y':0.6}
+        size_hint:(0.4,0.25)
+        elevation:10
+
+        AsyncImage:
+            id:img
+            source:''
+            allow_stretch:True
+            keep_ratio:False
+
+
+    MDLabel:
+        id:title
+        text:''
+        pos_hint:{'center_y':0.35}
+        halign:'center'
+
+    
+    
+    MDLabel:
+        id:elapsed
+        text:"00:00:00"
+        pos_hint: {"x":self.parent.lX, "top":self.parent.pY}
+        font_size: '15sp'
+
+    MDLabel:
+        id:length
+        text:"00:00:00"
+        pos_hint: {"x":self.parent.rX, "top":self.parent.pY}
+        font_size: '15sp'
