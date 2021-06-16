@@ -73,17 +73,20 @@ class BuildScreen(Screen):
             width_mult=4,
 
         )
+    
+    #Opens the timer menu in the bottom left
     def open_menu(self, btn):
         self.menu.caller = btn
         self.menu.open()
-
+        
+    #Sets the sleep timer and once time's up the program terminates
     def sleep(self, sleep_in):
         print("success")
         stop_program = lambda : MDApp.get_running_app().stop()
         timer = threading.Timer(sleep_in*60, stop_program)
         timer.start()
 
-    #To check if the player is playing from the search screen
+    #To check if the player is playing while user is in search screen
     def on_enter(self):
         self.playing = is_playing_now
         self.set = media_set
