@@ -10,9 +10,9 @@ html5lib==1.1
 idna==2.10
 isort==5.8.0
 Kivy==2.0.0
-kivy-deps.angle==0.3.0
-kivy-deps.glew==0.3.0
-kivy-deps.sdl2==0.3.1
+#kivy-deps.angle==0.3.0
+#kivy-deps.glew==0.3.0
+#kivy-deps.sdl2==0.3.1
 Kivy-Garden==0.1.4
 lazy-object-proxy==1.6.0
 lxml==4.6.3
@@ -23,9 +23,9 @@ pycodestyle==2.7.0
 pygame==2.0.1
 Pygments==2.8.1
 pylint==2.7.4
-pypiwin32==223
+#pypiwin32==223
 python-vlc==3.0.12117
-pywin32==300
+#pywin32==300
 requests==2.25.1
 six==1.15.0
 soupsieve==2.2.1
