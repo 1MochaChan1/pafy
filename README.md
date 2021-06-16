@@ -1,6 +1,6 @@
 # Media Player for youtube
 
-If you want to try this out I would recomment installing the development version of KivyMD after from here :
+If you want to try this out I would recomment installing the development version of KivyMD from here :
 https://pypi.org/project/kivymd/
 
 Or use these commands :
