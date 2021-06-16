@@ -6,5 +6,7 @@ https://pypi.org/project/kivymd/
 Or use these commands :
 
 git clone https://github.com/kivymd/KivyMD.git --depth 1
+
 cd KivyMD
+
 pip install .
