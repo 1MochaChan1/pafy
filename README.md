@@ -1,6 +1,6 @@
 # Media Player for youtube
 
-To use this in Unix based systems make sure remove some of the modules that are used for windows from the requirements.txt
+To use this on Unix based systems make sure remove some of the requirements that are used for windows from the requirements.txt
 
 Also this requires VLC Media Player to be installed to run properly
 
